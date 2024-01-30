@@ -1,0 +1,2 @@
+config BOARD_IBM_SYSTEM1
+	bool "SYSTEM1"

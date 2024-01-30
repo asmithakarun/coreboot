@@ -1,0 +1,35 @@
+if BOARD_IBM_SYSTEM1
+
+config BOARD_SPECIFIC_OPTIONS
+        def_bool y
+        select BOARD_ROMSIZE_KB_65536
+        select IPMI_KCS
+        select MAINBOARD_HAS_TPM2
+        select MEMORY_MAPPED_TPM
+        select MAINBOARD_USES_FSP2_0
+        select SOC_INTEL_SAPPHIRERAPIDS_SP
+        select HAVE_ACPI_TABLES
+        select MAINBOARD_USES_IFD_GBE_REGION
+
+config MAINBOARD_DIR
+        string
+        default "ibm/system1"
+
+config MAINBOARD_PART_NUMBER
+        string
+        default "SYSTEM1"
+
+config FMDFILE
+        string
+        default "src/mainboard/\$(CONFIG_MAINBOARD_DIR)/board.fmd"
+
+config MAX_SOCKET
+        int
+        default 2
+
+# System1: 2 threads * 2 sockets * 60 cores
+config MAX_CPUS
+        int
+        default 240
+
+endif
